@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
-const App: React.FunctionComponent = () => <div>TUTAJ BEDZIE APKA</div>;
+import { App } from "./app";
 
 ReactDOM.render(
   <App />,
