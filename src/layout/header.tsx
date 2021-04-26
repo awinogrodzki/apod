@@ -7,6 +7,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 24px;
 `
 
 const Logo = styled.span`
@@ -25,9 +27,11 @@ const Nav = styled.nav`
   li a {
     padding: 12px;
     transition: background-color 175ms ease-in-out;
+    border-radius: 3px;
+    border: 1px solid #c9c9c9;
     
     &:hover {
-      background-color: #e9e9e9;
+      background-color: #f3f3f3;
     }
   }
 `;

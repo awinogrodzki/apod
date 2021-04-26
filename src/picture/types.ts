@@ -1,4 +1,4 @@
-export interface AstronomyPicture {
+export interface Picture {
   copyright: string;
   date: string;
   explanation: string;

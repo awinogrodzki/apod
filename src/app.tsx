@@ -3,20 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import { Home } from './pages/home';
 import { Favourites } from './pages/favourites';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import styled from 'styled-components';
 import { GlobalStyle } from './styles';
-import { Header } from './layout/header';
-
-const Container = styled.div`
-  width: 960px;
-  max-width: 100%;
-  margin: 0 auto;
-`;
+import { DefaultLayout } from './layout/default';
 
 const queryClient = new QueryClient();
 
@@ -24,8 +16,7 @@ export const App: React.FunctionComponent = () => (
   <QueryClientProvider client={queryClient}>
     <GlobalStyle />
     <Router>
-      <Header />
-      <Container>
+      <DefaultLayout>
         <Switch>
           <Route path="/zapisane">
             <Favourites />
@@ -34,7 +25,7 @@ export const App: React.FunctionComponent = () => (
             <Home />
           </Route>
         </Switch>
-      </Container>
+      </DefaultLayout>
     </Router>
   </QueryClientProvider>
 );
