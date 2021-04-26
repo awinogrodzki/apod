@@ -12,6 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/awinogrodzki/apod.git"
   },
+  "engines": {
+    "node": "12.x.x",
+    "npm": "6.x.x"
+  },
   "keywords": [
     "astronomy"
   ],
