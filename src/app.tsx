@@ -7,7 +7,10 @@ import {
 } from "react-router-dom";
 import { Home } from './pages/home';
 import { Favourites } from './pages/favourites';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import styled from 'styled-components';
+import { GlobalStyle } from './styles';
+import { Header } from './layout/header';
 
 const Container = styled.div`
   width: 960px;
@@ -15,27 +18,23 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
+const queryClient = new QueryClient();
+
 export const App: React.FunctionComponent = () => (
-  <Router>
-    <Container>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/zapisane">Favourites</Link>
-          </li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route path="/zapisane">
-          <Favourites />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Container>
-  </Router>
+  <QueryClientProvider client={queryClient}>
+    <GlobalStyle />
+    <Router>
+      <Header />
+      <Container>
+        <Switch>
+          <Route path="/zapisane">
+            <Favourites />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
+  </QueryClientProvider>
 );
